@@ -1,0 +1,8 @@
+.carousel {
+width:40%; /* Or try to use important */
+height:auto;
+}
+
+.textCase {
+background-color: rgba(255,255,255,0.7);
+}

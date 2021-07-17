@@ -6,29 +6,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <title>Airports - Homepage</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="#" th:replace="common :: boostrap-css"/>
+    <link rel="stylesheet" href="styles/homepage.css">
+
 </head>
 <body>
 <br><br><br><br><br>
 <center>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <style>
-        .carousel {
-        width:40%; /* Or try to use important */
-        height:auto;
-        }
-        </style>
-
-        <style>
-        .textCase{
-        background-color: rgba(255,255,255,0.7);
-        }
-
-        </style>
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -67,8 +55,8 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<link href="#" th:replace="footerScripts :: bootstrap-js"/>
-<link href="#" th:replace="footerScripts2 :: bootstrap-js"/>
-<link href="#" th:replace="footerScripts1 :: bootstrap-js"/>
+<link href="#" th:replace="common :: jquery-js"/>
+<link href="#" th:replace="common :: popper-js"/>
+<link href="#" th:replace="common :: bootstrap-js"/>
 </body>
 </html>

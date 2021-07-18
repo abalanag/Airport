@@ -14,6 +14,7 @@
 
 </head>
 <body>
+<div th:replace="header :: header-info"></div>
 <br><br><br><br><br>
 <center>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -51,7 +52,10 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-</center>
+
+
+<!-- Footer -->
+<div th:replace="footer :: footer"></div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -1,23 +1,23 @@
 <!doctype html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="footer">
 <head>
     <title>Footer</title>
-    <link rel="stylesheet" href="styles/footer.css">
+    <link href="#" th:replace="common :: footer-css"/>
 </head>
 <body>
-<footer class="text-center text-white background" th:fragment="footer">
+<footer class="text-center text-white background">
     <div class="container pt-4">
         <section class="mb-4">
             <!-- Facebook -->
             <a href="https://google.com" type="button" class="btn btn-secondary">
-                <img src="styles/facebook.svg"/>
+                <img th:replace="common :: facebook-svg"/>
             </a>
             <a href="https://google.com" type="button" class="btn btn-secondary">
-                <img src="styles/instagram.svg"/>
+                <img th:replace="common :: instagram-svg"/>
             </a>
             <a href="https://google.com" type="button" class="btn btn-secondary">
-                <img src="styles/linkedin.svg"/>
+                <img th:replace="common :: linkedin-svg"/>
             </a>
         </section>
     </div>

@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Footer</title>
+    <link rel="stylesheet" href="styles/footer.css">
+</head>
+<body>
+<footer class="text-center text-white background" th:fragment="footer">
+    <div class="container pt-4">
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a href="https://google.com" type="button" class="btn btn-secondary">
+                <img src="styles/facebook.svg"/>
+            </a>
+            <a href="https://google.com" type="button" class="btn btn-secondary">
+                <img src="styles/instagram.svg"/>
+            </a>
+            <a href="https://google.com" type="button" class="btn btn-secondary">
+                <img src="styles/linkedin.svg"/>
+            </a>
+        </section>
+    </div>
+
+
+    <!-- Copyright -->
+    <div class="text-center text-dark p-3"> &copy; 2020 Copyright:
+        <a class="text-dark" th:href="@{/}">Alin AirLines</a>
+    </div>
+</footer>
+</body>
+</html>

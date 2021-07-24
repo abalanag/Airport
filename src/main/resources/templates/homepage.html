@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Airports - Homepage</title>
 
-    <!-- Bootstrap CSS -->
-
     <link href="#" th:replace="common :: popper-js"/>
     <link href="#" th:replace="common :: bootstrap-334-css"/>
     <link href="#" th:replace="common :: font-awesome-css"/>
@@ -17,11 +15,11 @@
     <link href="#" th:replace="common :: homepage-css"/>
 
 </head>
-<body>
+<body class="body">
 <div th:replace="header :: header-info"></div>
 
 <center>
-    <div class="container">
+    <div class="container centered">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -31,7 +29,6 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-
                 <div class="item active">
                     <img class="d-block w-100"
                          src="https://www.tion.ro/wp-content/uploads/2016/01/santorini-greece-91.jpg"
@@ -68,13 +65,12 @@
     </div>
 </center>
 
-<!-- Footer -->
-<div th:replace="footer :: footer"></div>
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="#" th:replace="common :: jquery-321-js"></script>
 <script src="#" th:replace="common :: bootstrap-334-js"></script>
 <script src="#" th:replace="common :: jquery-1-11-js"></script>
 </body>
+<!-- Footer -->
+<div th:replace="footer :: footer"></div>
 </html>

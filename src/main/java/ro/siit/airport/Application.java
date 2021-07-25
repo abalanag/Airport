@@ -1,4 +1,4 @@
-package ro.siit.Airport;
+package ro.siit.airport;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

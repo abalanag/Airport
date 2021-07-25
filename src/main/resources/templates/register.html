@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+
+    <link href="#" th:replace="common :: popper-js"/>
+    <link href="#" th:replace="common :: bootstrap-334-css"/>
+    <link href="#" th:replace="common :: header-css"/>
+    <link href="#" th:replace="common :: footer-css"/>
+    <link href="#" th:replace="common :: register-css"/>
+    <link href="#" th:replace="common :: font-awesome-all"/>
+
+</head>
+<body>
+<div th:replace="header :: header-info"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <h3 class="headline">Register</h3>
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-3 icon">
+                        <span><img th:src="@{/images/logo.png}" width="60" height="60"></span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form method="post" th:action="@{/register}" th:object="${register}">
+
+                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                        <div class="input-group form-group">
+                            <div class="input-group-addon">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Email" id="email" th:field="*{email}"/>
+                        </div>
+
+                        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+                        <div class="input-group form-group">
+                            <div class="input-group-addon">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Fist Name" id="firstName"
+                                   name="firstName" th:field="*{firstName}"/>
+                        </div>
+
+                        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+                        <div class="input-group form-group">
+                            <div class="input-group-addon">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Last Name" id="lastName"
+                                   name="lastName" th:field="*{lastName}"/>
+                        </div>
+
+                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                        <div class="input-group form-group">
+                            <div class="input-group-addon">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" class="form-control" placeholder="password" id="password"
+                                   name="password" th:field="*{password}"/>
+                        </div>
+
+
+                        <div class="form-group">
+                            <input type="submit" value="Register" class="btn pull-right login_btn">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="footer :: footer"></div>
+
+<script src="#" th:replace="common :: jquery-321-js"></script>
+<script src="#" th:replace="common :: bootstrap-334-js"></script>
+<script src="#" th:replace="common :: jquery-1-11-js"></script>
+</body>
+</html>

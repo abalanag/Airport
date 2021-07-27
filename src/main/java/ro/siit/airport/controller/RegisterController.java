@@ -35,13 +35,9 @@ public class RegisterController {
                               final Model model) {
         if (bindingResult.hasErrors()) {
             return "register";
-        }
-        try {
+        } else {
             registerService.saveUser(registerDto);
-        } catch (DataIntegrityViolationException e) {
-            bindingResult.reject("email.exists", "Email already exists");
-            return "register";
+            return "homepage";
         }
-        return "homepage";
     }
 }

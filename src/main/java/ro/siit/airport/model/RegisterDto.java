@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ro.siit.airport.validation.UniqueEmail;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -14,17 +15,18 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class RegisterDto {
 
-    @NotBlank
-    @Email
+    @NotBlank(message = "You must insert an Email!")
+    @Email(message = "You must insert and valid Email!")
+    @UniqueEmail
     private String email;
 
-    @NotBlank
+    @NotBlank(message = "You must insert your First Name!")
     private String firstName;
 
-    @NotBlank
+    @NotBlank(message = "You must insert your Last Name!")
     private String lastName;
 
-    @NotBlank
+    @NotBlank(message = "You must insert a Password!")
     private String password;
 
 }

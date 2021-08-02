@@ -27,6 +27,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
 
     @Bean
+    public UserDetailsService userDetailsService() {
+        return super.userDetailsService();
+    }
+
+    @Bean
     public PasswordEncoder retrievePasswordEncoder() {
         return new BCryptPasswordEncoder(11);
     }
@@ -34,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/home", "/index", "/styles/**", "/images/**").permitAll()
+                .antMatchers("/", "/home", "/index", "/register", "/styles/**", "/images/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

@@ -4,21 +4,24 @@
     <title>Footer</title>
 </head>
 <body>
-<footer class="text-center text-white" th:fragment="footer">
+<footer class="text-center text-white background" th:fragment="footer">
+    <div class="container pt-4">
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a href="https://google.com" type="button" class="btn btn-secondary">
+                <img th:replace="common :: facebook-svg"/>
+            </a>
+            <a href="https://google.com" type="button" class="btn btn-secondary">
+                <img th:replace="common :: instagram-svg"/>
+            </a>
+            <a href="https://google.com" type="button" class="btn btn-secondary">
+                <img th:replace="common :: linkedin-svg"/>
+            </a>
+        </section>
+    </div>
 
-    <section class="mb-4">
-        <a href="https://google.com" type="button" class="btn btn-secondary">
-            <img th:replace="common :: facebook-svg"/>
-        </a>
-        <a href="https://google.com" type="button" class="btn btn-secondary">
-            <img th:replace="common :: instagram-svg"/>
-        </a>
-        <a href="https://google.com" type="button" class="btn btn-secondary">
-            <img th:replace="common :: linkedin-svg"/>
-        </a>
-    </section>
-
-    <div class="text-center text-dark p-3"> &copy; 2021 Copyright:
+    <!-- Copyright -->
+    <div class="text-center text-dark p-3"> &copy; 2020 Copyright:
         <a class="text-dark" th:href="@{/}">Alin AirLines</a>
     </div>
 </footer>

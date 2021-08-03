@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <title>Airports info</title>
+
+    <link href="#" th:replace="common :: popper-js"/>
+    <link href="#" th:replace="common :: bootstrap-334-css"/>
+    <link href="#" th:replace="common :: font-awesome-css"/>
+    <link href="#" th:replace="common :: header-css"/>
+    <link href="#" th:replace="common :: footer-css"/>
+    <link href="#" th:replace="common :: search-css"/>
+    <link href="#" th:replace="common :: font-awesome-all"/>
+    <link href="#" th:replace="common :: bootstrap-datetimepicker"/>
+    <script src="#" th:replace="common :: jquery-321-js"></script>
+
+</head>
+<body>
+<div th:replace="header :: header-info"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <h3 class="headline">Airports info</h3>
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-3 icon">
+                        <span><img th:src="@{/images/logo.png}" width="60" height="60"></span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="input-group form-group">
+                        <div class="input-group-addon">
+                            <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                        </div>
+                        <select class="form-control" id="countrySelect" onchange="retrieveAirports()">
+                            <option th:value="-1" disabled selected hidden>Select country</option>
+                            <option th:each="country : ${countries}" th:value="${country.id}" th:text="${country.name}">
+                                Option
+                            </option>
+                        </select>
+                    </div>
+
+                    <form th:action="@{/search}" method="post" th:object="${flightRequestDto}">
+                        <div class="input-group form-group">
+                            <div class="input-group-addon">
+                                <span class="input-group-text"><i class="fas fa-plane"></i></span>
+                            </div>
+
+                            <select th:field="*{id}" class="form-control" id="airportSelect" name="flightRequestDto">
+                                <option th:value="-1" disabled selected hidden>Select Airport</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-addon">
+                                <span class="input-group-text"><i class="fas fa-plane"></i></span>
+                            </div>
+
+                            <select th:field="*{flightType}" class="form-control" name="flightType">
+                                <option th:value="-1" disabled selected hidden>Select flight type</option>
+                                <option th:value="'departure'" th:text="'Departure'"></option>
+                                <option th:value="'arrival'" th:text="'Arrival'"></option>
+                            </select>
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class='input-group date' id='datetimepicker6'>
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-calendar"></span></span>
+                                <input th:field="*{startDate}" id="data" type="text" class="form-control"
+                                       name="startTime"/>
+                            </div>
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class='input-group date' id='datetimepicker7'>
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-calendar"></span></span>
+                                <input th:field="*{endDate}" type='text' class="form-control" name="endTime"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Details" class="btn pull-right login_btn">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="footer :: footer"></div>
+
+<script src="#" th:replace="common :: jquery-1-11-js"></script>
+<script src="#" th:replace="common :: bootstrap-334-js"></script>
+<script src="#" th:replace="common :: country-js"></script>
+<script src="#" th:replace="common :: calendar-js"></script>
+<script src="#" th:replace="common :: moment"></script>
+<script src="#" th:replace="common :: bootstrap-datetimepicker"></script>
+
+</body>
+</html>

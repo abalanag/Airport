@@ -44,9 +44,9 @@
                                 <td th:text="${flight.flightNumber}"></td>
                                 <td class="tdTime" th:text="${flight.departure}"></td>
                                 <td class="tdTime" th:text="${flight.arrival}"></td>
-                                <td th:text="${flight.departureAirportId}"></td>
-                                <td th:text="${flight.arrivalAirportId}"></td>
-                                <td th:text="${flight.airlineId}"></td>
+                                <td th:text="${flight.departureAirport}"></td>
+                                <td th:text="${flight.arrivalAirport}"></td>
+                                <td th:text="${flight.airline}"></td>
                             </tr>
                             </tbody>
                         </table>
@@ -61,6 +61,5 @@
 <script src="#" th:replace="common :: jquery-321-js"></script>
 <script src="#" th:replace="common :: bootstrap-334-js"></script>
 <script src="#" th:replace="common :: timeChanger"></script>
-
 </body>
 </html>

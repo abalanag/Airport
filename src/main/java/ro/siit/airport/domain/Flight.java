@@ -5,7 +5,6 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -32,13 +31,13 @@ public class Flight {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "departure_airport_id", nullable = false)
-    private Airport departureAirportId;
+    private Airport departureAirport;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "arrival_airport_id", nullable = false)
-    private Airport arrivalAirportId;
+    private Airport arrivalAirport;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "airline_Id", nullable = false)
-    private Airline airlineId;
+    private Airline airline;
 }

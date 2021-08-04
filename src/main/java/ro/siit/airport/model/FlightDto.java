@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ro.siit.airport.domain.Airport;
 
 import java.time.LocalDateTime;
 
@@ -18,7 +17,7 @@ public class FlightDto {
     private String flightNumber;
     private LocalDateTime departure;
     private LocalDateTime arrival;
-    private String departureAirportId;
-    private String arrivalAirportId;
-    private String airlineId;
+    private String departureAirport;
+    private String arrivalAirport;
+    private String airline;
 }

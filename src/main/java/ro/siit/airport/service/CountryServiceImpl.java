@@ -22,4 +22,3 @@ public class CountryServiceImpl implements CountryService {
                 .collect(Collectors.toList());
     }
 }
-

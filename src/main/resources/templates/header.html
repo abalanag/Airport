@@ -47,9 +47,11 @@
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li sec:authorize="isAnonymous()"><a th:href="@{/register}" class="dropdown-toggle">Register</a></li>
+                    <li sec:authorize="isAnonymous()"><a th:href="@{/register}" class="dropdown-toggle">Register</a>
+                    </li>
                     <li sec:authorize="isAnonymous()"><a th:href="@{/login}" class="dropdown-toggle">Login</a></li>
-                    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="dropdown-toggle">Log out</a></li>
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="dropdown-toggle">Log out</a>
+                    </li>
                     <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/}" type="button" class="btn btn-secondary">
                         <img class="dropdown-toggle" th:replace="common :: menu-png"/></a>
                     </li>

@@ -18,9 +18,9 @@ public class FlightServiceImpl implements FlightService {
 
     public List<FlightDto> findByAirline(final AirlineFlightRequestDto airlineFlightRequestDto) {
 
-            final List<Flight> flight = flightRepository.retrieveDepartureFlightByAirline(airlineFlightRequestDto.getId(), airlineFlightRequestDto.getStartDate(), airlineFlightRequestDto.getEndDate());
-            return flight.stream()
-                    .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirportId().getName(), f.getArrivalAirportId().getName(), f.getAirlineId().getAirlineName()))
-                    .collect(Collectors.toList());
+        final List<Flight> flight = flightRepository.retrieveDepartureFlightByAirline(airlineFlightRequestDto.getId(), airlineFlightRequestDto.getStartDate(), airlineFlightRequestDto.getEndDate());
+        return flight.stream()
+                .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirportId().getName(), f.getArrivalAirportId().getName(), f.getAirlineId().getAirlineName()))
+                .collect(Collectors.toList());
     }
 }

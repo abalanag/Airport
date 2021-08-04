@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Header</title>
     <meta charset="UTF-8">
@@ -11,14 +11,14 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
+                <button class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse"
+                        type="button">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img class="navbar-brand" th:src="@{/images/logo.png}" width="50" height="50">
+                <img class="navbar-brand" height="50" th:src="@{/images/logo.png}" width="50">
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,17 +42,17 @@
 
                 <form class="navbar-form navbar-left" role="search">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input class="form-control" placeholder="Search" type="text">
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button class="btn btn-default" type="submit">Submit</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li sec:authorize="isAnonymous()"><a th:href="@{/register}" class="dropdown-toggle">Register</a>
+                    <li sec:authorize="isAnonymous()"><a class="dropdown-toggle" th:href="@{/register}">Register</a>
                     </li>
-                    <li sec:authorize="isAnonymous()"><a th:href="@{/login}" class="dropdown-toggle">Login</a></li>
-                    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="dropdown-toggle">Log out</a>
+                    <li sec:authorize="isAnonymous()"><a class="dropdown-toggle" th:href="@{/login}">Login</a></li>
+                    <li sec:authorize="isAuthenticated()"><a class="dropdown-toggle" th:href="@{/logout}">Log out</a>
                     </li>
-                    <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/}" type="button" class="btn btn-secondary">
+                    <li sec:authorize="hasRole('ADMIN')"><a class="btn btn-secondary" th:href="@{/}" type="button">
                         <img class="dropdown-toggle" th:replace="common :: menu-png"/></a>
                     </li>
                 </ul>

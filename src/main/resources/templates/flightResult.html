@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Airports info</title>
 
@@ -21,7 +21,7 @@
                 <h3 class="headline">Airports info</h3>
                 <div class="row">
                     <div class="col-md-7 col-md-offset-3 icon">
-                        <span><img th:src="@{/images/logo.png}" width="60" height="60"></span>
+                        <span><img height="60" th:src="@{/images/logo.png}" width="60"></span>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -40,13 +40,13 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="flight : ${flightDto}" scope="row" class="color">
+                            <tr class="color" scope="row" th:each="flight : ${flightDto}">
                                 <td th:text="${flight.flightNumber}"></td>
                                 <td class="tdTime" th:text="${flight.departure}"></td>
                                 <td class="tdTime" th:text="${flight.arrival}"></td>
-                                <td th:text="${flight.departureAirportId}"></td>
-                                <td th:text="${flight.arrivalAirportId}"></td>
-                                <td th:text="${flight.airlineId}"></td>
+                                <td th:text="${flight.departureAirport}"></td>
+                                <td th:text="${flight.arrivalAirport}"></td>
+                                <td th:text="${flight.airline}"></td>
                             </tr>
                             </tbody>
                         </table>

@@ -1,6 +1,5 @@
 package ro.siit.airport.service;
 
-import ch.qos.logback.core.joran.conditional.ElseAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ro.siit.airport.domain.Flight;
@@ -22,13 +21,13 @@ public class FlightServiceImpl implements FlightService {
 
             final List<Flight> flight = flightRepository.retrieveDepartureFlightByAirport(flightRequestDto.getId(), flightRequestDto.getStartDate(), flightRequestDto.getEndDate());
             return flight.stream()
-                    .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirportId().getName(), f.getArrivalAirportId().getName(), f.getAirlineId().getAirlineName()))
+                    .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
                     .collect(Collectors.toList());
         } else {
 
             final List<Flight> flight = flightRepository.retrieveArrivalFlightByAirport(flightRequestDto.getId(), flightRequestDto.getStartDate(), flightRequestDto.getEndDate());
             return flight.stream()
-                    .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirportId().getName(), f.getArrivalAirportId().getName(), f.getAirlineId().getAirlineName()))
+                    .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
                     .collect(Collectors.toList());
         }
     }

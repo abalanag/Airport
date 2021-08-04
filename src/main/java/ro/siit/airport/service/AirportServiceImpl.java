@@ -8,7 +8,6 @@ import ro.siit.airport.repository.AirportRepository;
 import ro.siit.airport.repository.CountryRepository;
 
 import javax.transaction.Transactional;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -40,5 +39,4 @@ public class AirportServiceImpl implements AirportService {
                 .map(a -> new AirportDto(a.getId(), a.getName(), a.getCity(), a.getLatitude(),
                         a.getLongitude(), a.getActive()));
     }
-
 }

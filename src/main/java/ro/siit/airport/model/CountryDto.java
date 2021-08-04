@@ -15,5 +15,4 @@ public class CountryDto {
     private Long id;
     private String name;
     private String countryCode;
-
 }

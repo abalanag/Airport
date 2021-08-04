@@ -1,38 +1,35 @@
 package ro.siit.airport.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
-@Table(name = "airports")
+@Table(name = "airlines")
 @Getter
 @Setter
-public class Airport {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Airline {
 
     @Id
-    @GeneratedValue
     @Column
+    @GeneratedValue
     private Long id;
 
-    @Column
-    private String name;
-
-    @Column
-    private String city;
+    @Column(name = "airline_name")
+    private String airlineName;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
 
     @Column
-    private BigDecimal latitude;
+    private String iata;
 
     @Column
-    private BigDecimal longitude;
-
-    @Column
-    private Boolean active;
+    private String icao;
 }

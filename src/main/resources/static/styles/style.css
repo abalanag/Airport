@@ -1,0 +1,59 @@
+/* Made with love by Mutiullah Samim*/
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-size: cover;
+background-repeat: no-repeat;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+align-content: center;
+  padding: 20px;
+}
+
+.panel{
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.icon{
+position: absolute;
+right: -30px;
+top: -30px;
+}
+
+.headline{
+margin-left: 1em;
+color: 	rgb(255,255,0);
+}
+
+.input-group-addon{
+width: 60x;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+}
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}

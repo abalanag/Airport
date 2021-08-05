@@ -35,5 +35,4 @@ public class Airport {
 
     @Column
     private Boolean active;
-
 }

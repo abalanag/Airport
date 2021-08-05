@@ -12,6 +12,7 @@
     <link th:fragment="font-awesome-all" rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
+
     <script th:fragment="popper-js" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
             integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
             crossorigin="anonymous"></script>
@@ -23,10 +24,9 @@
             src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
     <link rel="stylesheet" th:fragment="flight-css" th:href="@{/styles/flight.css}">
 
-    <img th:fragment="facebook-svg" th:src="@{/images/facebook.svg}"/>
-    <img th:fragment="linkedin-svg" th:src="@{/images/linkedin.svg}"/>
-    <img th:fragment="instagram-svg" th:src="@{/images/instagram.svg}"/>
-    <img th:fragment="menu-png" th:src="@{/images/menu.png}" width="20" height="18"/>
+    <script th:fragment="country-js" type="text/javascript" th:src="@{/script/country.js}"></script>
+    <script th:fragment="timeChanger" type="text/javascript" th:src="@{/script/timeChanger.js}"></script>
+
 
     <link th:fragment="homepage-css" rel="stylesheet" th:href="@{/styles/homepage.css}">
     <link th:fragment="header-css" rel="stylesheet" th:href="@{/styles/header.css}">
@@ -34,8 +34,14 @@
     <link th:fragment="login-css" rel="stylesheet" th:href="@{/styles/login.css}">
     <link th:fragment="error-css" rel="stylesheet" th:href="@{/styles/error.css}">
     <link th:fragment="register-css" rel="stylesheet" th:href="@{/styles/register.css}">
+    <link th:fragment="style-css" rel="stylesheet" th:href="@{/styles/style.css}">
+    <link th:fragment="airport-css" rel="stylesheet" th:href="@{/styles/airport.css}">
 
-    <script th:fragment="timeChanger" th:src="@{/script/timeChanger.js}" type="text/javascript"></script>
+
+    <img th:fragment="facebook-svg" th:src="@{/images/facebook.svg}"/>
+    <img th:fragment="linkedin-svg" th:src="@{/images/linkedin.svg}"/>
+    <img th:fragment="instagram-svg" th:src="@{/images/instagram.svg}"/>
+    <img th:fragment="menu-png" th:src="@{/images/menu.png}" width="20" height="18"/>
 
 </head>
 <body>

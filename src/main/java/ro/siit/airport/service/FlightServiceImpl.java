@@ -9,17 +9,21 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class DashboardServiceImpl implements DashboardService {
+public class FlightServiceImpl implements FlightService {
 
     @Autowired
-    private FlightRepository flightRepository;
+    FlightRepository flightRepository;
 
-    public List<FlightDto> findAllFlights() {
-
+    public List<FlightDto> findAll() {
         return flightRepository.findAll()
                 .stream()
                 .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(),
                         f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
                 .collect(Collectors.toList());
+    }
+
+    public boolean deleteRecord(Long id) {
+        flightRepository.findById(id).ifPresent(f -> flightRepository.delete(f));
+        return flightRepository.findById(id).isEmpty();
     }
 }

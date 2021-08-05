@@ -2,7 +2,6 @@ package ro.siit.airport.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import ro.siit.airport.domain.User;
-import ro.siit.airport.model.RegisterDto;
 
 import java.util.Optional;
 

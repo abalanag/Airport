@@ -9,4 +9,6 @@ public interface FlightService {
     List<FlightDto> findTodayDepartureFlights(Long airportId);
 
     List<FlightDto> findTodayArrivalFlights(Long airportId);
+
+    Boolean saveRecord(FlightDto FlightDto);
 }

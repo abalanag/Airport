@@ -19,7 +19,6 @@ public class RegisterServiceImpl implements RegisterService {
     @Autowired
     private RegisterRepository registerRepository;
 
-
     @Override
     public boolean saveUser(final RegisterDto registerDto) {
         final User user = new User();
@@ -37,5 +36,4 @@ public class RegisterServiceImpl implements RegisterService {
         return registerRepository.findByEmail(email)
                 .map(m -> new RegisterDto(m.getEmail(), m.getPassword(), m.getFirstName(), m.getLastName()));
     }
-
 }

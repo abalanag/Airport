@@ -39,4 +39,11 @@ public class AirportServiceImpl implements AirportService {
                 .map(a -> new AirportDto(a.getId(), a.getName(), a.getCity(), a.getLatitude(),
                         a.getLongitude(), a.getActive()));
     }
+
+    @Override
+    public List<AirportDto> findAll() {
+        return airportRepository.findAll().stream()
+                .map(a -> new AirportDto(a.getId(), a.getName(), a.getCity(), a.getLatitude(), a.getLongitude(), a.getActive()))
+                .collect(Collectors.toList());
+    }
 }

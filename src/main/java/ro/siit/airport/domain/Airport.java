@@ -1,6 +1,8 @@
 package ro.siit.airport.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,6 +12,8 @@ import java.math.BigDecimal;
 @Table(name = "airports")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Airport {
 
     @Id
@@ -35,4 +39,13 @@ public class Airport {
 
     @Column
     private Boolean active;
+
+    public Airport(String name, String city, Country country, BigDecimal latitude, BigDecimal longitude, Boolean active) {
+        this.name = name;
+        this.city = city;
+        this.country = country;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.active = active;
+    }
 }

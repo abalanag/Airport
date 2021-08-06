@@ -23,7 +23,7 @@ public class DashboardController {
         return "dashboard";
     }
 
-    @GetMapping("/dashboard/delete/{id}")
+    @GetMapping("/dashboard/delete/")
     public @ResponseBody
     String deleteRecord(@RequestParam Long id) {
         flightService.deleteRecord(id);

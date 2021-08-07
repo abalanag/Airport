@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <meta charset="utf-8">
+
     <title>Airports info</title>
 
     <link href="#" th:replace="common :: popper-js"/>
@@ -36,19 +40,25 @@
                                 <th>Departure Airport</th>
                                 <th>Arrival Airport</th>
                                 <th>Airline</th>
+                                <th>Edit Flight</th>
 
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr class="color" scope="row" th:each="flight : ${flightDto}">
-                                <td th:text="${flight.flightNumber}"></td>
-                                <td class="tdTime" th:text="${flight.departure}"></td>
-                                <td class="tdTime" th:text="${flight.arrival}"></td>
-                                <td th:text="${flight.departureAirport}"></td>
-                                <td th:text="${flight.arrivalAirport}"></td>
-                                <td th:text="${flight.airline}"></td>
-                            </tr>
-                            </tbody>
+                            <form>
+                                <tbody>
+                                <tr class="color" scope="row" th:each="flight : ${flightDto}">
+                                    <td th:text="${flight.flightNumber}"></td>
+                                    <td class="tdTime" th:text="${flight.departure}"></td>
+                                    <td class="tdTime" th:text="${flight.arrival}"></td>
+                                    <td th:text="${flight.departureAirport}"></td>
+                                    <td th:text="${flight.arrivalAirport}"></td>
+                                    <td th:text="${flight.airline}"></td>
+                                    <td><a class="btn btn-outline-danger" id="edit"
+                                           th:onclick="'editFunc(' + ${flight.id} + ')'">
+                                        <p>Edit</p></a></td>
+                                </tr>
+                                </tbody>
+                            </form>
                         </table>
                     </div>
                 </div>
@@ -58,8 +68,11 @@
 </div>
 <div th:replace="footer :: footer"></div>
 
-<script src="#" th:replace="common :: jquery-321-js"></script>
+<script th:replace="common :: jquery-js"></script>
+<script th:replace="common :: ajax-js"></script>
+<script th:replace="common :: jquery-data-js"></script>
 <script src="#" th:replace="common :: bootstrap-334-js"></script>
+<script src="#" th:replace="common :: editFlight"></script>
 <script src="#" th:replace="common :: timeChanger"></script>
 
 </body>

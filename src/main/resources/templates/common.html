@@ -12,7 +12,6 @@
     <link th:fragment="font-awesome-all" rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-
     <script th:fragment="popper-js" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
             integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
             crossorigin="anonymous"></script>
@@ -22,11 +21,14 @@
             crossorigin="anonymous"></script>
     <script th:fragment="bootstrap-334-js"
             src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
-    <link rel="stylesheet" th:fragment="flight-css" th:href="@{/styles/flight.css}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js" th:fragment="moment"
+            type="text/javascript"></script>
+    <script th:fragment="bootstrap-datetimepicker" th:src="@{/script/bootstrap-datetimepicker.js}"
+            type="text/javascript"></script>
 
     <script th:fragment="country-js" type="text/javascript" th:src="@{/script/country.js}"></script>
     <script th:fragment="timeChanger" type="text/javascript" th:src="@{/script/timeChanger.js}"></script>
-
+    <script th:fragment="calendar-js" th:src="@{/script/calendar.js}" type="text/javascript"></script>
 
     <link th:fragment="homepage-css" rel="stylesheet" th:href="@{/styles/homepage.css}">
     <link th:fragment="header-css" rel="stylesheet" th:href="@{/styles/header.css}">
@@ -36,12 +38,22 @@
     <link th:fragment="register-css" rel="stylesheet" th:href="@{/styles/register.css}">
     <link th:fragment="style-css" rel="stylesheet" th:href="@{/styles/style.css}">
     <link th:fragment="airport-css" rel="stylesheet" th:href="@{/styles/airport.css}">
-
+    <link rel="stylesheet" th:fragment="flight-css" th:href="@{/styles/flight.css}">
+    <link rel="stylesheet" th:fragment="bootstrap-datetimepicker" th:href="@{/styles/bootstrap-datetimepicker.min.css}">
+    <link rel="stylesheet" th:fragment="editFlight-css" th:href="@{/styles/editFlight.css}">
 
     <img th:fragment="facebook-svg" th:src="@{/images/facebook.svg}"/>
     <img th:fragment="linkedin-svg" th:src="@{/images/linkedin.svg}"/>
     <img th:fragment="instagram-svg" th:src="@{/images/instagram.svg}"/>
     <img th:fragment="menu-png" th:src="@{/images/menu.png}" width="20" height="18"/>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" th:fragment="jquery-js"></script>
+    <script crossorigin="anonymous" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            th:fragment="ajax-js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" th:fragment="jquery-data-js"></script>
+    <script th:fragment="editFlight" th:src="@{/script/editFlight.js}" type="text/javascript"></script>
 
 </head>
 <body>

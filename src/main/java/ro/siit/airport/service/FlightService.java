@@ -15,4 +15,5 @@ public interface FlightService {
 
     List<FlightDto> findByAirline(AirlineFlightRequestDto airlineFlightRequestDto);
 
+    Boolean saveRecord(FlightDto FlightDto);
 }

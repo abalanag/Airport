@@ -19,7 +19,6 @@ public class RegisterServiceImpl implements RegisterService {
     @Autowired
     private RegisterRepository registerRepository;
 
-
     @Override
     public boolean saveUser(final RegisterDto registerDto) {
         final User user = new User();

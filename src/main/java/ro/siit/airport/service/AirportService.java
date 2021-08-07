@@ -9,4 +9,6 @@ public interface AirportService {
     List<AirportDto> findByCountry(Long countryId);
 
     Optional<AirportDto> findById(Long airportId);
+
+    List<AirportDto> findAll();
 }

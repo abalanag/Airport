@@ -13,4 +13,5 @@ public interface AirlineRepository extends JpaRepository<Airline, Long> {
 
     Optional<Airline> findAirlineById(Long id);
 
+    Optional<Airline> findById(Long id);
 }

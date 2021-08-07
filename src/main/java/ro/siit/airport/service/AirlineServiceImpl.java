@@ -6,7 +6,6 @@ import ro.siit.airport.domain.Airline;
 import ro.siit.airport.model.AirlineDto;
 import ro.siit.airport.repository.AirlineRepository;
 import ro.siit.airport.repository.CountryRepository;
-
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,5 +36,12 @@ public class AirlineServiceImpl implements AirlineService {
     public Optional<AirlineDto> findAirlineById(final Long airlineId) {
         return airlineRepository.findAirlineById(airlineId)
                 .map(a -> new AirlineDto(a.getId(), a.getAirlineName(), a.getCountry(), a.getIata(), a.getIcao()));
+    }
+
+    @Override
+    public List<AirlineDto> findAll() {
+        return airlineRepository.findAll().stream()
+                .map(a -> new AirlineDto(a.getId(), a.getAirlineName(), a.getCountry(), a.getIata(), a.getIcao()))
+                .collect(Collectors.toList());
     }
 }

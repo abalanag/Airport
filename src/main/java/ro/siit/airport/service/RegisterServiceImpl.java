@@ -37,5 +37,4 @@ public class RegisterServiceImpl implements RegisterService {
         return registerRepository.findByEmail(email)
                 .map(m -> new RegisterDto(m.getEmail(), m.getPassword(), m.getFirstName(), m.getLastName()));
     }
-
 }

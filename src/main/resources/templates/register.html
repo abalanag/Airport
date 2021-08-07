@@ -20,50 +20,50 @@
                 <h3 class="headline">Register</h3>
                 <div class="row">
                     <div class="col-md-3 col-md-offset-3 icon">
-                        <span><img th:src="@{/images/logo.png}" width="60" height="60"></span>
+                        <span><img height="60" th:src="@{/images/logo.png}" width="60"></span>
                     </div>
                 </div>
                 <div class="panel-body">
                     <form method="post" th:action="@{/register}" th:object="${register}">
 
-                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                        <span th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></span>
                         <div class="input-group form-group">
                             <div class="input-group-addon">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Email" id="email" th:field="*{email}"/>
+                            <input class="form-control" id="email" placeholder="Email" th:field="*{email}" type="text"/>
                         </div>
 
-                        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+                        <span th:errors="*{firstName}" th:if="${#fields.hasErrors('firstName')}"></span>
                         <div class="input-group form-group">
                             <div class="input-group-addon">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Fist Name" id="firstName"
-                                   name="firstName" th:field="*{firstName}"/>
+                            <input class="form-control" id="firstName" name="firstName" placeholder="Fist Name"
+                                   th:field="*{firstName}" type="text"/>
                         </div>
 
-                        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+                        <span th:errors="*{lastName}" th:if="${#fields.hasErrors('lastName')}"></span>
                         <div class="input-group form-group">
                             <div class="input-group-addon">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Last Name" id="lastName"
-                                   name="lastName" th:field="*{lastName}"/>
+                            <input class="form-control" id="lastName" name="lastName" placeholder="Last Name"
+                                   th:field="*{lastName}" type="text"/>
                         </div>
 
-                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                        <span th:errors="*{password}" th:if="${#fields.hasErrors('password')}"></span>
                         <div class="input-group form-group">
                             <div class="input-group-addon">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="password" id="password"
-                                   name="password" th:field="*{password}"/>
+                            <input class="form-control" id="password" name="password" placeholder="password"
+                                   th:field="*{password}" type="password"/>
                         </div>
 
 
                         <div class="form-group">
-                            <input type="submit" value="Register" class="btn pull-right login_btn">
+                            <input class="btn pull-right login_btn" type="submit" value="Register">
                         </div>
                     </form>
                 </div>

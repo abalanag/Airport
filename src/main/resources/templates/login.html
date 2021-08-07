@@ -21,7 +21,7 @@
                 <h3 class="headline">Sign In</h3>
                 <div class="row">
                     <div class="col-md-3 col-md-offset-3 icon">
-                        <span><img th:src="@{/images/logo.png}" width="60" height="60"></span>
+                        <span><img height="60" th:src="@{/images/logo.png}" width="60"></span>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -41,20 +41,20 @@
                             <div class="input-group-addon">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="username" id="username"
-                                   name="username"/>
+                            <input class="form-control" id="username" name="username" placeholder="username"
+                                   type="text"/>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-addon">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="password" id="password"
-                                   name="password"/>
+                            <input class="form-control" id="password" name="password" placeholder="password"
+                                   type="password"/>
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" value="Login" class="btn pull-right login_btn">
+                            <input class="btn pull-right login_btn" type="submit" value="Login">
                         </div>
                     </form>
                 </div>

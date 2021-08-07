@@ -11,4 +11,4 @@ public interface FlightService {
     List<FlightDto> findTodayArrivalFlights(Long airportId);
 
     List<FlightDto> findByAirport(FlightRequestDto flightRequestDto);
-
+}

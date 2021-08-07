@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title>Airports info</title>
 
     <link href="#" th:replace="common :: popper-js"/>
@@ -30,7 +32,7 @@
                         <div class="input-group-addon">
                             <span class="input-group-text"><i class="fas fa-globe"></i></span>
                         </div>
-                        <select class="form-control" id="countrySelect" onchange="retrieveAirports()">
+                        <select class="form-control" id="countrySelect" onchange="retrieveAirport()">
                             <option disabled selected hidden>Select country</option>
                             <option th:each="country : ${countries}" th:value="${country.id}" th:text="${country.name}">
                                 Option
@@ -63,6 +65,6 @@
 <script src="#" th:replace="common :: jquery-321-js"></script>
 <script src="#" th:replace="common :: bootstrap-334-js"></script>
 <script src="#" th:replace="common :: jquery-1-11-js"></script>
-<script src="#" th:replace="common :: country-js"></script>
+<script src="#" th:replace="common :: airportInfo"></script>
 </body>
 </html>

@@ -28,9 +28,6 @@ public class FlightServiceImpl implements FlightService {
                 .collect(Collectors.toList());
     }
 
-    @Autowired
-    FlightRepository flightRepository;
-
     public List<FlightDto> findByAirport(final FlightRequestDto flightRequestDto) {
         if (flightRequestDto.getFlightType().equals("departure") || flightRequestDto.getFlightType().equals("Departure")) {
 

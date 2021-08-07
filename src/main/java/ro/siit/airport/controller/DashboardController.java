@@ -6,16 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import ro.siit.airport.model.FlightDto;
 import ro.siit.airport.service.AirlineService;
 import ro.siit.airport.service.AirportService;
 import ro.siit.airport.service.FlightService;
 import ro.siit.airport.model.EditFlightDto;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.security.RolesAllowed;
 
 @Controller
@@ -76,5 +73,12 @@ public class DashboardController {
         model.addAttribute("flight", editFlightDto);
         flightService.updateFlight(editFlightDto);
         return "redirect:/dashboard";
+    }
+
+    @GetMapping("/dashboard/delete/")
+    public @ResponseBody
+    String deleteRecord(@RequestParam Long id) {
+        flightService.deleteRecord(id);
+        return "dashboard";
     }
 }

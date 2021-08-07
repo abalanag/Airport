@@ -16,5 +16,5 @@ public interface FlightService {
     EditFlightDto findById(final Long Id);
     List<FlightDto> findAllFlights();
     Boolean updateFlight(final EditFlightDto editFlightDto);
-
+    boolean deleteRecord(Long id);
 }

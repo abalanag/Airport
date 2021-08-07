@@ -44,6 +44,7 @@
                                 <th>Arrival Airport</th>
                                 <th>Airline</th>
                                 <th>Edit Flight</th>
+                                <th>Delete record</th>
 
                             </tr>
                             </thead>
@@ -59,6 +60,9 @@
                                     <td><a class="btn btn-outline-danger" id="edit"
                                            th:onclick="'editFunc(' + ${flight.id} + ')'">
                                         <p>Edit</p></a></td>
+                                    <td><a class="btn btn-outline-danger" id="delete"
+                                           th:onclick="'deleteFunc(' + ${flight.id} + ')'">
+                                        <p>Delete</p></a></td>
                                 </tr>
                                 </tbody>
                             </form>

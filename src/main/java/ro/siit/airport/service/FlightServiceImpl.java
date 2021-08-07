@@ -6,6 +6,7 @@ import ro.siit.airport.domain.Flight;
 import ro.siit.airport.model.FlightDto;
 import ro.siit.airport.model.FlightRequestDto;
 import ro.siit.airport.repository.FlightRepository;
+import ro.siit.airport.model.AirlineFlightRequestDto;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,5 +43,13 @@ public class FlightServiceImpl implements FlightService {
                     .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
                     .collect(Collectors.toList());
         }
+    }
+
+    public List<FlightDto> findByAirline(final AirlineFlightRequestDto airlineFlightRequestDto) {
+
+        final List<Flight> flight = flightRepository.retrieveDepartureFlightByAirline(airlineFlightRequestDto.getId(), airlineFlightRequestDto.getStartDate(), airlineFlightRequestDto.getEndDate());
+        return flight.stream()
+                .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
+                .collect(Collectors.toList());
     }
 }

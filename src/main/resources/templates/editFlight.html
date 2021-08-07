@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <title>Airlines info</title>
+
+    <link href="#" th:replace="common :: popper-js"/>
+    <link href="#" th:replace="common :: bootstrap-334-css"/>
+    <link href="#" th:replace="common :: font-awesome-css"/>
+    <link href="#" th:replace="common :: header-css"/>
+    <link href="#" th:replace="common :: footer-css"/>
+    <link href="#" th:replace="common :: editFlight-css"/>
+    <link href="#" th:replace="common :: font-awesome-all"/>
+    <link href="#" th:replace="common :: bootstrap-datetimepicker"/>
+
+</head>
+<body>
+<div th:replace="header :: header-info"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <form method="post" th:action="@{/dashboard/edit/}" th:object="${flight}">
+                    <input name="id" th:value="*{id}" type="hidden">
+                    <h3 class="headline" id="id" th:field="*{id}" th:text="'Edit Flight ID#' + ${flight.id}"
+                        th:value=${flight.id}>
+                        Edit Flight</h3>
+                    <div class="row">
+                        <div class="col-md-3 col-md-offset-3 icon">
+                            <span><img height="60" th:src="@{/images/logo.png}" width="60"></span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <label for="flightNumber">Flight Number</label>
+                        <div class="input-group form-group">
+                            <div class="input-group-addon">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input class="form-control" id="flightNumber" name="flightNumber"
+                                   placeholder="Flight Number" th:field="*{flightNumber}" type='text'/>
+                        </div>
+
+                        <label for="departureAirport">Departure airport</label>
+                        <div class="input-group form-group">
+                            <div class="input-group-addon">
+                                <span class="input-group-text"><i class="fas fa-plane"></i></span>
+                            </div>
+                            <select class="form-control" id="departureAirport" th:field="*{departureAirport.id}">
+                                <option selected th:text="${flight.departureAirport.name}"
+                                        th:value="${flight.departureAirport.id}">Select departure airport
+                                </option>
+                                <option th:each="airport : ${airportDto}" th:text="${airport.name}"
+                                        th:value=${airport.id}></option>
+                            </select>
+                        </div>
+
+                        <label for="arrivalAirport">Arrival airport</label>
+                        <div class="input-group form-group">
+                            <div class="input-group-addon">
+                                <span class="input-group-text"><i class="fas fa-plane"></i></span>
+                            </div>
+                            <select class="form-control" id="arrivalAirport" th:field="*{arrivalAirport.id}">
+                                <option selected th:text="${flight.arrivalAirport.name}"
+                                        th:value="${flight.arrivalAirport.id}">Select departure airport
+                                </option>
+                                <option th:each="airport : ${airportDto}" th:text="${airport.name}"
+                                        th:value=${airport.id}></option>
+                            </select>
+                        </div>
+
+                        <label for="airline">Airline</label>
+                        <div class="input-group form-group">
+                            <div class="input-group-addon">
+                                <span class="input-group-text"><i class="fas fa-plane"></i></span>
+                            </div>
+                            <select class="form-control" id="airline" th:field="*{airline.id}">
+                                <option selected th:text="${flight.airline.airlineName}"
+                                        th:value="${flight.airline.id}">Select departure airline
+                                </option>
+                                <option th:each="airline : ${airlineDto}" th:text="${airline.airlineName}"
+                                        th:value=${airline.id}></option>
+                            </select>
+                        </div>
+
+                        <span th:errors="*{departure}" th:if="${#fields.hasErrors('departure')}"></span>
+                        <label for="data">Departure Date</label>
+                        <div class="input-group form-group">
+                            <div class='input-group date' id='datetimepicker6'>
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-calendar"></span></span>
+                                <input class="form-control" id="data" name="departure" placeholder="Start data"
+                                       th:field="*{departure}"
+                                       type="text"/>
+                            </div>
+                        </div>
+
+                        <span th:errors="*{arrival}" th:if="${#fields.hasErrors('arrival')}"></span>
+                        <label for="arrivalData">Arrival Date</label>
+                        <div class="input-group form-group">
+                            <div class='input-group date' id='datetimepicker7'>
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-calendar"></span></span>
+                                <input class="form-control" id="arrivalData" name="arrival" placeholder="End data"
+                                       th:field="*{arrival}"
+                                       type='text'/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="btn pull-right login_btn" type="submit" value="Details">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="footer :: footer"></div>
+
+<script src="#" th:replace="common :: jquery-1-11-js"></script>
+<script src="#" th:replace="common :: bootstrap-334-js"></script>
+<script src="#" th:replace="common :: calendar-js"></script>
+<script src="#" th:replace="common :: moment"></script>
+<script src="#" th:replace="common :: bootstrap-datetimepicker"></script>
+
+</body>
+</html>

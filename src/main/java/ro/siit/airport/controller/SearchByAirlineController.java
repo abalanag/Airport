@@ -19,13 +19,13 @@ import java.util.List;
 public class SearchByAirlineController {
 
     @Autowired
-    CountryService countryService;
+    private CountryService countryService;
 
     @Autowired
-    AirlineService airlineService;
+    private AirlineService airlineService;
 
     @Autowired
-    FlightService flightService;
+    private FlightService flightService;
 
     @GetMapping("/airline")
     public String retrieveCountries(final Model model) {

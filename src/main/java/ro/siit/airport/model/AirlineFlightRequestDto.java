@@ -1,3 +1,4 @@
+
 package ro.siit.airport.model;
 
 import lombok.AllArgsConstructor;

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -49,9 +50,10 @@
 
                             <select th:field="*{id}" class="form-control" id="airlineSelect"
                                     name="airlineFlightRequestDto">
-                                <option th:value="-1" disabled selected>Select Airline</option>
+                                <option disabled hidden selected th:value="-1">Select Airport</option>
                             </select>
                         </div>
+
 
                         <div class="input-group form-group">
                             <div class='input-group date' id='datetimepicker6'>
@@ -86,7 +88,7 @@
 
 <script src="#" th:replace="common :: jquery-1-11-js"></script>
 <script src="#" th:replace="common :: bootstrap-334-js"></script>
-<script src="#" th:replace="common :: country-js"></script>
+<script src="#" th:replace="common :: airline"></script>
 <script src="#" th:replace="common :: calendar-js"></script>
 <script src="#" th:replace="common :: moment"></script>
 <script src="#" th:replace="common :: bootstrap-datetimepicker"></script>

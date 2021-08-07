@@ -3,10 +3,10 @@ package ro.siit.airport.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ro.siit.airport.domain.Flight;
+import ro.siit.airport.model.AirlineFlightRequestDto;
 import ro.siit.airport.model.FlightDto;
 import ro.siit.airport.model.FlightRequestDto;
 import ro.siit.airport.repository.FlightRepository;
-import ro.siit.airport.model.AirlineFlightRequestDto;
 
 import java.util.List;
 import java.util.stream.Collectors;

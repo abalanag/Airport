@@ -7,12 +7,12 @@ import ro.siit.airport.domain.Airport;
 import ro.siit.airport.domain.Country;
 import ro.siit.airport.domain.Flight;
 import ro.siit.airport.model.AirlineFlightRequestDto;
+import ro.siit.airport.model.EditFlightDto;
 import ro.siit.airport.model.FlightDto;
 import ro.siit.airport.model.FlightRequestDto;
 import ro.siit.airport.repository.AirlineRepository;
 import ro.siit.airport.repository.AirportRepository;
 import ro.siit.airport.repository.FlightRepository;
-import ro.siit.airport.model.EditFlightDto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

@@ -18,10 +18,10 @@ public class EditFlightDto {
     private Long id;
     private String flightNumber;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy h:mm a")
+    @DateTimeFormat(pattern = "MM/dd/yyyy h:mm a")
     private LocalDateTime departure;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy h:mm a")
+    @DateTimeFormat(pattern = "MM/dd/yyyy h:mm a")
     private LocalDateTime arrival;
     private Airport departureAirport;
     private Airport arrivalAirport;

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ro.siit.airport.model.FlightDto;
 import ro.siit.airport.service.AirlineService;
 import ro.siit.airport.service.AirportService;
-import ro.siit.airport.service.DashboardService;
 import ro.siit.airport.service.FlightService;
 import ro.siit.airport.model.EditFlightDto;
 
@@ -21,9 +20,6 @@ import javax.annotation.security.RolesAllowed;
 
 @Controller
 public class DashboardController {
-
-    @Autowired
-    private DashboardService dashboardService;
 
     @Autowired
     AirportService airportService;
@@ -37,7 +33,7 @@ public class DashboardController {
     @GetMapping("/dashboard")
     @RolesAllowed("ROLE_ADMIN")
     public String getDashboard(Model model) {
-        model.addAttribute("flightDto", dashboardService.findAllFlights());
+        model.addAttribute("flightDto", flightService.findAllFlights());
         return "dashboard";
     }
 
@@ -60,7 +56,7 @@ public class DashboardController {
             return "addNewFlight";
         } else {
             flightService.saveRecord(flightDto);
-            model.addAttribute("flightDto", dashboardService.findAllFlights());
+            model.addAttribute("flightDto", flightService.findAllFlights());
             return "dashboard";
         }
     }

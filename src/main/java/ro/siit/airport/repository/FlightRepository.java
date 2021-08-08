@@ -43,4 +43,9 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
     List<Flight> retrieveDepartureFlightByAirline(@Param("fId") Airline id,
                                                   @Param("startData") LocalDateTime startData,
                                                   @Param("endData") LocalDateTime endData);
+
+    @Query("select f from Flight f where f.airline=:fId and f.arrival between :startData and :endData")
+    List<Flight> retrieveArrivalFlightByAirline(@Param("fId") Airline id,
+                                                  @Param("startData") LocalDateTime startData,
+                                                  @Param("endData") LocalDateTime endData);
 }

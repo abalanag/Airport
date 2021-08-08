@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ro.siit.airport.model.AirlineDto;
-import ro.siit.airport.model.AirlineFlightRequestDto;
+import ro.siit.airport.model.FlightRequestDto;
 import ro.siit.airport.service.AirlineService;
 import ro.siit.airport.service.CountryService;
 import ro.siit.airport.service.FlightService;
@@ -30,7 +30,7 @@ public class SearchByAirlineController {
     @GetMapping("/airline")
     public String retrieveCountries(final Model model) {
         model.addAttribute("countries", countryService.findAll());
-        model.addAttribute("airlineFlightRequestDto", new AirlineFlightRequestDto());
+        model.addAttribute("airlineFlightRequestDto", new FlightRequestDto());
         return "searchByAirline";
     }
 
@@ -41,9 +41,9 @@ public class SearchByAirlineController {
     }
 
     @PostMapping("/airline")
-    public String viewAirport(AirlineFlightRequestDto airlineFlightRequestDto, Model model) {
-        model.addAttribute("airlineFlightRequestDto", airlineFlightRequestDto);
-        model.addAttribute("flightDto", flightService.findByAirline(airlineFlightRequestDto));
+    public String viewAirport(FlightRequestDto flightRequestDto, Model model) {
+        model.addAttribute("airlineFlightRequestDto", flightRequestDto);
+        model.addAttribute("flightDto", flightService.findByAirline(flightRequestDto));
         return "flightResult";
     }
 

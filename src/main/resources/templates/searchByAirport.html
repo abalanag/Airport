@@ -29,6 +29,8 @@
                     </div>
                 </div>
                 <div class="panel-body">
+
+                    <label for="countrySelect">Select country</label>
                     <div class="input-group form-group">
                         <div class="input-group-addon">
                             <span class="input-group-text"><i class="fas fa-globe"></i></span>
@@ -42,28 +44,31 @@
                     </div>
 
                     <form method="post" th:action="@{/search}" th:object="${flightRequestDto}">
+                        <label for="airportSelect">Select Airport</label>
                         <div class="input-group form-group">
                             <div class="input-group-addon">
                                 <span class="input-group-text"><i class="fas fa-plane"></i></span>
                             </div>
 
-                            <select class="form-control" id="airportSelect" name="flightRequestDto" th:field="*{id}">
+                            <select class="form-control" id="airportSelect" name="flightRequestDto" th:field="*{airport}">
                                 <option disabled hidden selected th:value="-1">Select Airport</option>
                             </select>
                         </div>
 
+                        <label for="type">Select flight type</label>
                         <div class="input-group form-group">
                             <div class="input-group-addon">
                                 <span class="input-group-text"><i class="fas fa-plane"></i></span>
                             </div>
 
-                            <select class="form-control" name="flightType" th:field="*{flightType}">
+                            <select id="type" class="form-control" name="flightType" th:field="*{flightType}">
                                 <option disabled hidden selected th:value="-1">Select flight type</option>
                                 <option th:text="'Departure'" th:value="'departure'"></option>
                                 <option th:text="'Arrival'" th:value="'arrival'"></option>
                             </select>
                         </div>
 
+                        <label for="data">Select from date</label>
                         <div class="input-group form-group">
                             <div class='input-group date' id='datetimepicker6'>
                                 <span class="input-group-addon"><span
@@ -73,11 +78,12 @@
                             </div>
                         </div>
 
+                        <label for="end">Select until date</label>
                         <div class="input-group form-group">
                             <div class='input-group date' id='datetimepicker7'>
                                 <span class="input-group-addon"><span
                                         class="glyphicon glyphicon-calendar"></span></span>
-                                <input class="form-control" name="endTime" th:field="*{endDate}" type='text'/>
+                                <input class="form-control" id="end" name="endTime" th:field="*{endDate}" type='text'/>
                             </div>
                         </div>
 

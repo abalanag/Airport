@@ -6,7 +6,6 @@ import ro.siit.airport.domain.Airline;
 import ro.siit.airport.domain.Airport;
 import ro.siit.airport.domain.Country;
 import ro.siit.airport.domain.Flight;
-import ro.siit.airport.model.AirlineFlightRequestDto;
 import ro.siit.airport.model.EditFlightDto;
 import ro.siit.airport.model.FlightDto;
 import ro.siit.airport.model.FlightRequestDto;
@@ -47,12 +46,12 @@ public class FlightServiceImpl implements FlightService {
     public List<FlightDto> findByAirport(final FlightRequestDto flightRequestDto) {
         if (flightRequestDto.getFlightType().equals("departure") || flightRequestDto.getFlightType().equals("Departure")) {
 
-            final List<Flight> flight = flightRepository.retrieveDepartureFlightByAirport(flightRequestDto.getId(), flightRequestDto.getStartDate(), flightRequestDto.getEndDate());
+            final List<Flight> flight = flightRepository.retrieveDepartureFlightByAirport(flightRequestDto.getAirport(), flightRequestDto.getStartDate(), flightRequestDto.getEndDate());
             return flight.stream()
                     .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
                     .collect(Collectors.toList());
         } else {
-            final List<Flight> flight = flightRepository.retrieveArrivalFlightByAirport(flightRequestDto.getId(), flightRequestDto.getStartDate(), flightRequestDto.getEndDate());
+            final List<Flight> flight = flightRepository.retrieveArrivalFlightByAirport(flightRequestDto.getAirport(), flightRequestDto.getStartDate(), flightRequestDto.getEndDate());
             return flight.stream()
                     .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
                     .collect(Collectors.toList());
@@ -60,12 +59,20 @@ public class FlightServiceImpl implements FlightService {
     }
 
     @Override
-    public List<FlightDto> findByAirline(final AirlineFlightRequestDto airlineFlightRequestDto) {
-        final List<Flight> flight = flightRepository.retrieveDepartureFlightByAirline(airlineFlightRequestDto.getId(), airlineFlightRequestDto.getStartDate(), airlineFlightRequestDto.getEndDate());
-        return flight.stream()
-                .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
-                .collect(Collectors.toList());
+    public List<FlightDto> findByAirline(final FlightRequestDto flightRequestDto) {
+        if (flightRequestDto.getFlightType().equals("departure") || flightRequestDto.getFlightType().equals("Departure")) {
+            final List<Flight> flight = flightRepository.retrieveDepartureFlightByAirline(flightRequestDto.getAirline(), flightRequestDto.getStartDate(), flightRequestDto.getEndDate());
+            return flight.stream()
+                    .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
+                    .collect(Collectors.toList());
+        } else {
+            final List<Flight> flight = flightRepository.retrieveArrivalFlightByAirline(flightRequestDto.getAirline(), flightRequestDto.getStartDate(), flightRequestDto.getEndDate());
+            return flight.stream()
+                    .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
+                    .collect(Collectors.toList());
+        }
     }
+
 
     @Override
     public Boolean saveRecord(final FlightDto flightDto) {

@@ -1,6 +1,5 @@
 package ro.siit.airport.service;
 
-import ro.siit.airport.model.AirlineFlightRequestDto;
 import ro.siit.airport.model.EditFlightDto;
 import ro.siit.airport.model.FlightDto;
 import ro.siit.airport.model.FlightRequestDto;
@@ -15,7 +14,7 @@ public interface FlightService {
 
     List<FlightDto> findByAirport(FlightRequestDto flightRequestDto);
 
-    List<FlightDto> findByAirline(AirlineFlightRequestDto airlineFlightRequestDto);
+    List<FlightDto> findByAirline(FlightRequestDto FlightRequestDto);
 
     Boolean saveRecord(FlightDto FlightDto);
 

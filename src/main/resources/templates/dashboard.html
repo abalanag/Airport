@@ -14,6 +14,8 @@
     <link href="#" th:replace="common :: footer-css"/>
     <link href="#" th:replace="common :: flight-css"/>
     <link href="#" th:replace="common :: font-awesome-all"/>
+    <link href="#" th:replace="common :: datatable-css"/>
+    <link href="#" th:replace="common :: datatableMin-css"/>
 
 </head>
 <body>
@@ -33,7 +35,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-striped custom-table">
+                        <table class="table table-fluid custom-table" id="myTable">
                             <thead>
                             <tr>
 
@@ -73,7 +75,7 @@
         </div>
     </div>
 </div>
-<div th:replace="footer :: footer"></div>
+
 
 <script th:replace="common :: jquery-js"></script>
 <script th:replace="common :: ajax-js"></script>
@@ -82,6 +84,14 @@
 <script src="#" th:replace="common :: editFlight"></script>
 <script src="#" th:replace="common :: timeChanger"></script>
 <script src="#" th:replace="common :: dashboard"></script>
+<script src="#" th:replace="common :: datatable-js"></script>
+<script src="#" th:replace="common :: jqueryDataTable-js"></script>
 
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+
+</script>
 </body>
 </html>

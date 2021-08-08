@@ -4,9 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import ro.siit.airport.domain.Airline;
+import ro.siit.airport.domain.Airport;
 import ro.siit.airport.domain.Flight;
 import ro.siit.airport.model.FlightDto;
-import ro.siit.airport.domain.Airport;
+
 import java.time.LocalDateTime;
 import java.util.List;
 

@@ -12,3 +12,10 @@ body{
     padding:50px;
     background-image: url('https://wallpaperaccess.com/full/1968246.jpg');
 }
+
+footer {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 0; /* absolutely bottom */
+    width: 95%;
+}

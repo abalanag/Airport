@@ -28,5 +28,4 @@ public class RegisterDto {
 
     @NotBlank(message = "You must insert a Password!")
     private String password;
-
 }

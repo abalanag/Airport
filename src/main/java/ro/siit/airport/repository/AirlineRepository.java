@@ -10,8 +10,6 @@ import java.util.Optional;
 public interface AirlineRepository extends JpaRepository<Airline, Long> {
 
     List<Airline> findByCountry(Country country);
-
     Optional<Airline> findAirlineById(Long id);
-
     Optional<Airline> findById(Long id);
 }

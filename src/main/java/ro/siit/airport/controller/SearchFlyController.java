@@ -46,5 +46,4 @@ public class SearchFlyController {
         model.addAttribute("flightDto", flightService.findByAirport(flightRequestDto));
         return "flightResult";
     }
-
 }

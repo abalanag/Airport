@@ -38,5 +38,4 @@ public class User {
     @Column
     @Enumerated(EnumType.STRING)
     private UserRole role;
-
 }

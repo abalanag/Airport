@@ -7,12 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import ro.siit.airport.model.EditFlightDto;
 import ro.siit.airport.model.FlightDto;
 import ro.siit.airport.service.AirlineService;
 import ro.siit.airport.service.AirportService;
 import ro.siit.airport.service.FlightService;
-import ro.siit.airport.model.EditFlightDto;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 import javax.annotation.security.RolesAllowed;
 
 @Controller

@@ -46,14 +46,36 @@ public class FlightServiceImpl implements FlightService {
     public List<FlightDto> findByAirport(final FlightRequestDto flightRequestDto) {
         if (flightRequestDto.getFlightType().equals("departure") || flightRequestDto.getFlightType().equals("Departure")) {
 
-            final List<Flight> flight = flightRepository.retrieveDepartureFlightByAirport(flightRequestDto.getAirport(), flightRequestDto.getStartDate(), flightRequestDto.getEndDate());
+            final List<Flight> flight = flightRepository
+                    .retrieveDepartureFlightByAirport(
+                            flightRequestDto.getAirport(),
+                            flightRequestDto.getStartDate(),
+                            flightRequestDto.getEndDate());
             return flight.stream()
-                    .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
+                    .map(f -> new FlightDto(
+                            f.getId(),
+                            f.getFlightNumber(),
+                            f.getDeparture(),
+                            f.getArrival(),
+                            f.getDepartureAirport().getName(),
+                            f.getArrivalAirport().getName(),
+                            f.getAirline().getAirlineName()))
                     .collect(Collectors.toList());
         } else {
-            final List<Flight> flight = flightRepository.retrieveArrivalFlightByAirport(flightRequestDto.getAirport(), flightRequestDto.getStartDate(), flightRequestDto.getEndDate());
+            final List<Flight> flight = flightRepository
+                    .retrieveArrivalFlightByAirport(
+                            flightRequestDto.getAirport(),
+                            flightRequestDto.getStartDate(),
+                            flightRequestDto.getEndDate());
             return flight.stream()
-                    .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
+                    .map(f -> new FlightDto(
+                            f.getId(),
+                            f.getFlightNumber(),
+                            f.getDeparture(),
+                            f.getArrival(),
+                            f.getDepartureAirport().getName(),
+                            f.getArrivalAirport().getName(),
+                            f.getAirline().getAirlineName()))
                     .collect(Collectors.toList());
         }
     }
@@ -61,14 +83,36 @@ public class FlightServiceImpl implements FlightService {
     @Override
     public List<FlightDto> findByAirline(final FlightRequestDto flightRequestDto) {
         if (flightRequestDto.getFlightType().equals("departure") || flightRequestDto.getFlightType().equals("Departure")) {
-            final List<Flight> flight = flightRepository.retrieveDepartureFlightByAirline(flightRequestDto.getAirline(), flightRequestDto.getStartDate(), flightRequestDto.getEndDate());
+            final List<Flight> flight = flightRepository
+                    .retrieveDepartureFlightByAirline(
+                            flightRequestDto.getAirline(),
+                            flightRequestDto.getStartDate(),
+                            flightRequestDto.getEndDate());
             return flight.stream()
-                    .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
+                    .map(f -> new FlightDto(
+                            f.getId(),
+                            f.getFlightNumber(),
+                            f.getDeparture(),
+                            f.getArrival(),
+                            f.getDepartureAirport().getName(),
+                            f.getArrivalAirport().getName(),
+                            f.getAirline().getAirlineName()))
                     .collect(Collectors.toList());
         } else {
-            final List<Flight> flight = flightRepository.retrieveArrivalFlightByAirline(flightRequestDto.getAirline(), flightRequestDto.getStartDate(), flightRequestDto.getEndDate());
+            final List<Flight> flight = flightRepository
+                    .retrieveArrivalFlightByAirline(
+                            flightRequestDto.getAirline(),
+                            flightRequestDto.getStartDate(),
+                            flightRequestDto.getEndDate());
             return flight.stream()
-                    .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(), f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
+                    .map(f -> new FlightDto(
+                            f.getId(),
+                            f.getFlightNumber(),
+                            f.getDeparture(),
+                            f.getArrival(),
+                            f.getDepartureAirport().getName(),
+                            f.getArrivalAirport().getName(),
+                            f.getAirline().getAirlineName()))
                     .collect(Collectors.toList());
         }
     }
@@ -80,28 +124,43 @@ public class FlightServiceImpl implements FlightService {
         flight.setFlightNumber(flightDto.getFlightNumber());
         flight.setDeparture(flightDto.getDeparture());
         flight.setArrival(flightDto.getArrival());
-        flight.setDepartureAirport(airportRepository.findAirportById(Long.parseLong(flightDto.getDepartureAirport())).orElseGet(
-                () -> new Airport(2L, "N/A", "N/A", new Country(), BigDecimal.ZERO, BigDecimal.ZERO, Boolean.FALSE)));
-        flight.setArrivalAirport(airportRepository.findAirportById(Long.parseLong(flightDto.getArrivalAirport())).orElseGet(
-                () -> new Airport(-1L, "N/A", "N/A", new Country(), BigDecimal.ZERO, BigDecimal.ZERO, Boolean.FALSE)));
-        flight.setAirline(airlineRepository.findById(Long.parseLong(flightDto.getAirline())).orElseGet(
-                () -> new Airline(-1L, "N/A", new Country(), "N/A", "N/A")));
+        flight.setDepartureAirport(airportRepository
+                .findAirportById(Long.parseLong(flightDto.getDepartureAirport()))
+                .orElseGet(() -> new Airport(2L, "N/A", "N/A", new Country(), BigDecimal.ZERO, BigDecimal.ZERO, Boolean.FALSE)));
+        flight.setArrivalAirport(airportRepository
+                .findAirportById(Long.parseLong(flightDto.getArrivalAirport()))
+                .orElseGet(() -> new Airport(-1L, "N/A", "N/A", new Country(), BigDecimal.ZERO, BigDecimal.ZERO, Boolean.FALSE)));
+        flight.setAirline(airlineRepository.findById(Long.parseLong(flightDto.getAirline()))
+                .orElseGet(() -> new Airline(-1L, "N/A", new Country(), "N/A", "N/A")));
         final Flight savedFlight = flightRepository.save(flight);
         return (savedFlight.getId() != null);
     }
 
     public EditFlightDto findById(final Long id) {
-        return flightRepository.findById(id).map(f -> new EditFlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(),
-                f.getArrival(), f.getDepartureAirport(), f.getArrivalAirport(), f.getAirline())).orElse(new EditFlightDto(1L, "N/A",
-                LocalDateTime.now(), LocalDateTime.now(), new Airport(), new Airport(), new Airline()));
+        return flightRepository
+                .findById(id).map(f -> new EditFlightDto(
+                        f.getId(),
+                        f.getFlightNumber(),
+                        f.getDeparture(),
+                        f.getArrival(),
+                        f.getDepartureAirport(),
+                        f.getArrivalAirport(),
+                        f.getAirline()))
+                .orElse(new EditFlightDto(1L, "N/A", LocalDateTime.now(), LocalDateTime.now(), new Airport(), new Airport(), new Airline()));
     }
 
     public List<FlightDto> findAllFlights() {
 
         return flightRepository.findAll()
                 .stream()
-                .map(f -> new FlightDto(f.getId(), f.getFlightNumber(), f.getDeparture(), f.getArrival(),
-                        f.getDepartureAirport().getName(), f.getArrivalAirport().getName(), f.getAirline().getAirlineName()))
+                .map(f -> new FlightDto(
+                        f.getId(),
+                        f.getFlightNumber(),
+                        f.getDeparture(),
+                        f.getArrival(),
+                        f.getDepartureAirport().getName(),
+                        f.getArrivalAirport().getName(),
+                        f.getAirline().getAirlineName()))
                 .collect(Collectors.toList());
     }
 
@@ -111,17 +170,20 @@ public class FlightServiceImpl implements FlightService {
         flight.setFlightNumber(editFlightDto.getFlightNumber());
         flight.setDeparture(editFlightDto.getDeparture());
         flight.setArrival(editFlightDto.getArrival());
-        flight.setDepartureAirport(airportRepository.findAirportById(editFlightDto.getDepartureAirport().getId())
+        flight.setDepartureAirport(airportRepository
+                .findAirportById(editFlightDto.getDepartureAirport().getId())
                 .orElseGet(() -> new Airport(-1L, "N/A", "N/A", new Country(), BigDecimal.ZERO, BigDecimal.ZERO, Boolean.FALSE)));
-        flight.setArrivalAirport(airportRepository.findAirportById(editFlightDto.getArrivalAirport().getId()).orElseGet(
-                () -> new Airport(-1L, "N/A", "N/A", new Country(), BigDecimal.ZERO, BigDecimal.ZERO, Boolean.FALSE)));
-        flight.setAirline(airlineRepository.findById(editFlightDto.getAirline().getId()).orElseGet(
-                () -> new Airline(-1L, "N/A", new Country(), "N/A", "N/A")));
+        flight.setArrivalAirport(airportRepository
+                .findAirportById(editFlightDto.getArrivalAirport().getId())
+                .orElseGet(() -> new Airport(-1L, "N/A", "N/A", new Country(), BigDecimal.ZERO, BigDecimal.ZERO, Boolean.FALSE)));
+        flight.setAirline(airlineRepository
+                .findById(editFlightDto.getAirline().getId())
+                .orElseGet(() -> new Airline(-1L, "N/A", new Country(), "N/A", "N/A")));
         final Flight savedFlight = flightRepository.save(flight);
         return (savedFlight.getId() != null);
     }
 
-    public boolean deleteRecord(Long id) {
+    public boolean deleteRecord(final Long id) {
         flightRepository.findById(id).ifPresent(f -> flightRepository.delete(f));
         return flightRepository.findById(id).isEmpty();
     }

@@ -18,7 +18,10 @@ public class CountryServiceImpl implements CountryService {
     public List<CountryDto> findAll() {
         return countryRepository.findAll()
                 .stream()
-                .map(a -> new CountryDto(a.getId(), a.getName(), a.getCountryCode()))
+                .map(a -> new CountryDto(
+                        a.getId(),
+                        a.getName(),
+                        a.getCountryCode()))
                 .collect(Collectors.toList());
     }
 }

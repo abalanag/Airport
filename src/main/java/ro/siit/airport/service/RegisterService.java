@@ -7,6 +7,5 @@ import java.util.Optional;
 public interface RegisterService {
 
     boolean saveUser(RegisterDto registerDto);
-
     Optional<RegisterDto> findByEmail(String email);
 }

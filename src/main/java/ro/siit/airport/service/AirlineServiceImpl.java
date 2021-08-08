@@ -29,20 +29,35 @@ public class AirlineServiceImpl implements AirlineService {
                 .map(a -> airlineRepository.findByCountry(a))
                 .orElse(new ArrayList<>());
         return airline.stream()
-                .map(a -> new AirlineDto(a.getId(), a.getAirlineName(), a.getCountry(), a.getIata(), a.getIcao()))
+                .map(a -> new AirlineDto(
+                        a.getId(),
+                        a.getAirlineName(),
+                        a.getCountry(),
+                        a.getIata(),
+                        a.getIcao()))
                 .collect(Collectors.toList());
     }
 
     @Override
     public Optional<AirlineDto> findAirlineById(final Long airlineId) {
         return airlineRepository.findAirlineById(airlineId)
-                .map(a -> new AirlineDto(a.getId(), a.getAirlineName(), a.getCountry(), a.getIata(), a.getIcao()));
+                .map(a -> new AirlineDto(
+                        a.getId(),
+                        a.getAirlineName(),
+                        a.getCountry(),
+                        a.getIata(),
+                        a.getIcao()));
     }
 
     @Override
     public List<AirlineDto> findAll() {
         return airlineRepository.findAll().stream()
-                .map(a -> new AirlineDto(a.getId(), a.getAirlineName(), a.getCountry(), a.getIata(), a.getIcao()))
+                .map(a -> new AirlineDto(
+                        a.getId(),
+                        a.getAirlineName(),
+                        a.getCountry(),
+                        a.getIata(),
+                        a.getIcao()))
                 .collect(Collectors.toList());
     }
 }

@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
+import ro.siit.airport.domain.Airline;
+import ro.siit.airport.domain.Airport;
 
 import java.time.LocalDateTime;
 
@@ -13,7 +15,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FlightDto {
-
     private Long id;
     private String flightNumber;
 
@@ -22,7 +23,7 @@ public class FlightDto {
 
     @DateTimeFormat(pattern = "MM/dd/yyyy h:mm a")
     private LocalDateTime arrival;
-    private String departureAirport;
-    private String arrivalAirport;
-    private String airline;
+    private Airport departureAirport;
+    private Airport arrivalAirport;
+    private Airline airline;
 }

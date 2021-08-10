@@ -1,6 +1,5 @@
 package ro.siit.airport.service;
 
-import ro.siit.airport.model.EditFlightDto;
 import ro.siit.airport.model.FlightDto;
 import ro.siit.airport.model.FlightRequestDto;
 
@@ -13,8 +12,8 @@ public interface FlightService {
     List<FlightDto> findByAirport(FlightRequestDto flightRequestDto);
     List<FlightDto> findByAirline(FlightRequestDto FlightRequestDto);
     Boolean saveRecord(FlightDto FlightDto);
-    EditFlightDto findById(final Long Id);
+    FlightDto findById(final Long Id);
     List<FlightDto> findAllFlights();
-    Boolean updateFlight(final EditFlightDto editFlightDto);
+    Boolean updateFlight(final FlightDto flightDto);
     boolean deleteRecord(Long id);
 }

@@ -1,5 +1,6 @@
 package ro.siit.airport.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
+@Slf4j
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class RestMessageControllerTest {
 
@@ -42,7 +44,7 @@ public class RestMessageControllerTest {
             Assertions.assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCodeValue());
 
         } catch (URISyntaxException e) {
-            System.err.println(e);
+
         }
     }
 
@@ -54,7 +56,7 @@ public class RestMessageControllerTest {
             Assertions.assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCodeValue());
 
         } catch (URISyntaxException e) {
-            System.err.println(e);
+            System.err.println(e); // TODO: replace with logger
         }
     }
 }

@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ro.siit.airport.model.EditFlightDto;
 import ro.siit.airport.model.FlightDto;
 import ro.siit.airport.service.AirlineService;
 import ro.siit.airport.service.AirportService;
@@ -63,15 +62,15 @@ public class DashboardController {
     String editRecord(@RequestParam Long id, final Model model) {
         model.addAttribute("flight", flightService.findById(id));
         model.addAttribute("airportDto", airportService.findAll());
-        model.addAttribute("airline", airlineService.findAll());
+        model.addAttribute("airlineDto", airlineService.findAll());
         return "editFlight";
     }
 
     @PostMapping("/dashboard/edit/")
     @PreAuthorize("hasRole('ADMIN')")
-    public String editFlight(@ModelAttribute EditFlightDto editFlightDto, final Model model) {
-        model.addAttribute("flight", editFlightDto);
-        flightService.updateFlight(editFlightDto);
+    public String editFlight(@ModelAttribute FlightDto flightDto, final Model model) {
+        model.addAttribute("flight", flightDto);
+        flightService.updateFlight(flightDto);
         return "redirect:/dashboard";
     }
 

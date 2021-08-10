@@ -77,8 +77,8 @@
                             <tr th:each="flightDeparture : ${flightDepartureDto}" scope="row" class="color">
                                 <td th:text="${flightDeparture.flightNumber}"></td>
                                 <td class="tdTime" th:text="${flightDeparture.departure}"></td>
-                                <td th:text="${flightDeparture.arrivalAirport}"></td>
-                                <td th:text="${flightDeparture.airline}"></td>
+                                <td th:text="${flightDeparture.arrivalAirport.name}"></td>
+                                <td th:text="${flightDeparture.airline.airlineName}"></td>
                             </tr>
                             </tbody>
                         </table>
@@ -114,8 +114,8 @@
                             <tr th:each="flightArrival : ${flightArrivalDto}" scope="row" class="color">
                                 <td th:text="${flightArrival.flightNumber}"></td>
                                 <td class="tdTime" th:text="${flightArrival.arrival}"></td>
-                                <td th:text="${flightArrival.departureAirport}"></td>
-                                <td th:text="${flightArrival.airline}"></td>
+                                <td th:text="${flightArrival.departureAirport.name}"></td>
+                                <td th:text="${flightArrival.airline.airlineName}"></td>
                             </tr>
                             </tbody>
                         </table>
@@ -125,7 +125,6 @@
         </div>
     </div>
 </div>
-<div th:replace="footer :: footer"></div>
 
 <script src="#" th:replace="common :: jquery-1-11-js"></script>
 <script src="#" th:replace="common :: bootstrap-334-js"></script>

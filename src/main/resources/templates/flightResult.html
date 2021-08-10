@@ -41,9 +41,9 @@
                                 <td th:text="${flight.flightNumber}"></td>
                                 <td class="tdTime" th:text="${flight.departure}"></td>
                                 <td class="tdTime" th:text="${flight.arrival}"></td>
-                                <td th:text="${flight.departureAirport}"></td>
-                                <td th:text="${flight.arrivalAirport}"></td>
-                                <td th:text="${flight.airline}"></td>
+                                <td th:text="${flight.departureAirport.name}"></td>
+                                <td th:text="${flight.arrivalAirport.name}"></td>
+                                <td th:text="${flight.airline.airlineName}"></td>
                             </tr>
                             </tbody>
                         </table>

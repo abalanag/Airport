@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface FlightService {
 
-    List<FlightDto> findTodayDepartureFlights(Long airportId);
-    List<FlightDto> findTodayArrivalFlights(Long airportId);
-    List<FlightDto> findByAirport(FlightRequestDto flightRequestDto);
-    List<FlightDto> findByAirline(FlightRequestDto FlightRequestDto);
-    Boolean saveRecord(FlightDto FlightDto);
+    List<FlightDto> findTodayDepartureFlights(final Long airportId);
+    List<FlightDto> findTodayArrivalFlights(final Long airportId);
+    List<FlightDto> findByAirport(final FlightRequestDto flightRequestDto);
+    List<FlightDto> findByAirline(final FlightRequestDto FlightRequestDto);
     FlightDto findById(final Long Id);
     List<FlightDto> findAllFlights();
+    Boolean saveRecord(final FlightDto FlightDto);
     Boolean updateFlight(final FlightDto flightDto);
-    boolean deleteRecord(Long id);
+    Boolean deleteRecord(final Long id);
 }

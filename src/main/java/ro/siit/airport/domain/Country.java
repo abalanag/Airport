@@ -35,4 +35,10 @@ public class Country {
     @JsonIgnore
     @OneToMany(mappedBy = "country", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Airline> airline;
+
+    public Country(Long id, String name, String countryCode) {
+        this.id = id;
+        this.name = name;
+        this.countryCode = countryCode;
+    }
 }

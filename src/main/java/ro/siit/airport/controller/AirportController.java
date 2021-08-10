@@ -40,13 +40,9 @@ public class AirportController {
 
     @PostMapping("/airports")
     public String viewAirport(@RequestParam("airportDto") final Long airportId, final Model model, final AirportDto airportDto) {
-        if (airportId == -1) {
-            return "country";
-        } else {
-            airportService.findById(airportId).ifPresent(a -> model.addAttribute("airportDto", a));
-            model.addAttribute("flightDepartureDto", flightService.findTodayDepartureFlights(airportId));
-            model.addAttribute("flightArrivalDto", flightService.findTodayArrivalFlights(airportId));
-            return "airport";
-        }
+        model.addAttribute("airportDto", airportService.findAirportById(airportId));
+        model.addAttribute("flightDepartureDto", flightService.findTodayDepartureFlights(airportId));
+        model.addAttribute("flightArrivalDto", flightService.findTodayArrivalFlights(airportId));
+        return "airport";
     }
 }

@@ -15,6 +15,7 @@ import ro.siit.airport.repository.FlightRepository;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -79,17 +80,18 @@ public class FlightServiceImpl implements FlightService {
 
     @Override
     public Boolean saveRecord(final FlightDto flightDto) {
-        Flight flight = new Flight();
-        flight.setFlightNumber(flightDto.getFlightNumber());
-        flight.setDeparture(flightDto.getDeparture());
-        flight.setArrival(flightDto.getArrival());
-        flight.setDepartureAirport(flightDto.getDepartureAirport());
-        flight.setArrivalAirport(flightDto.getArrivalAirport());
-        flight.setAirline(flightDto.getAirline());
+        Flight flight = new Flight(
+                flightDto.getFlightNumber(),
+                flightDto.getDeparture(),
+                flightDto.getArrival(),
+                flightDto.getDepartureAirport(),
+                flightDto.getArrivalAirport(),
+                flightDto.getAirline());
         final Flight savedFlight = flightRepository.save(flight);
         return (savedFlight.getId() != null);
     }
 
+    @Override
     public FlightDto findById(final Long id) {
         return flightRepository
                 .findById(id).map(f -> new FlightDto(
@@ -103,8 +105,8 @@ public class FlightServiceImpl implements FlightService {
                 .orElse(new FlightDto(1L, "N/A", LocalDateTime.now(), LocalDateTime.now(), new Airport(), new Airport(), new Airline()));
     }
 
+    @Override
     public List<FlightDto> findAllFlights() {
-
         return flightRepository.findAll()
                 .stream()
                 .map(f -> new FlightDto(
@@ -118,26 +120,23 @@ public class FlightServiceImpl implements FlightService {
                 .collect(Collectors.toList());
     }
 
+    @Override
     public Boolean updateFlight(final FlightDto flightDto) {
-        Flight flight = new Flight();
-        flight.setId(flightDto.getId());
-        flight.setFlightNumber(flightDto.getFlightNumber());
-        flight.setDeparture(flightDto.getDeparture());
-        flight.setArrival(flightDto.getArrival());
-        flight.setDepartureAirport(airportRepository
-                .findAirportById(flightDto.getDepartureAirport().getId())
-                .orElseGet(() -> new Airport(-1L, "N/A", "N/A", new Country(), BigDecimal.ZERO, BigDecimal.ZERO, Boolean.FALSE)));
-        flight.setArrivalAirport(airportRepository
-                .findAirportById(flightDto.getArrivalAirport().getId())
-                .orElseGet(() -> new Airport(-1L, "N/A", "N/A", new Country(), BigDecimal.ZERO, BigDecimal.ZERO, Boolean.FALSE)));
-        flight.setAirline(airlineRepository
-                .findById(flightDto.getAirline().getId())
-                .orElseGet(() -> new Airline(-1L, "N/A", new Country(), "N/A", "N/A")));
-        final Flight savedFlight = flightRepository.save(flight);
-        return (savedFlight.getId() != null);
+        Optional<Flight> flight = flightRepository.findById(flightDto.getId())
+                .map(f -> new Flight(
+                        flightDto.getId(),
+                        flightDto.getFlightNumber(),
+                        flightDto.getDeparture(),
+                        flightDto.getArrival(),
+                        flightDto.getDepartureAirport(),
+                        flightDto.getArrivalAirport(),
+                        flightDto.getAirline()));
+        flight.ifPresent(f -> flightRepository.save(f));
+        return flightRepository.getById(flight.get().getId()) != null;
     }
 
-    public boolean deleteRecord(final Long id) {
+    @Override
+    public Boolean deleteRecord(final Long id) {
         flightRepository.findById(id).ifPresent(f -> flightRepository.delete(f));
         return flightRepository.findById(id).isEmpty();
     }

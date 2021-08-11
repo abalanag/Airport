@@ -28,6 +28,7 @@
                 <div class="panel-body">
 
                     <form method="post" th:action="@{/new-flight}" th:object="${flightDto}">
+                        <span th:errors="*{flightNumber}" th:if="${#fields.hasErrors('flightNumber')}"></span>
                         <label for="flightNumber">Flight Number</label>
                         <div class="input-group form-group">
                             <div class="input-group-addon">

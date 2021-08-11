@@ -31,7 +31,7 @@ public class SearchByAirlineController {
     public String retrieveCountries(final Model model) {
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("airlineFlightRequestDto", new FlightRequestDto());
-        return "searchByAirline";
+        return "search-by-airline";
     }
 
     @GetMapping("/airline/airlines")
@@ -44,6 +44,6 @@ public class SearchByAirlineController {
     public String viewAirport(FlightRequestDto flightRequestDto, Model model) {
         model.addAttribute("airlineFlightRequestDto", flightRequestDto);
         model.addAttribute("flightDto", flightService.findByAirline(flightRequestDto));
-        return "flightResult";
+        return "flight-result";
     }
 }

@@ -8,6 +8,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import ro.siit.airport.domain.Airline;
 import ro.siit.airport.domain.Airport;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Getter
@@ -20,11 +22,14 @@ public class FlightRequestDto {
 
     private Airline airline;
 
+    @NotBlank
     private String flightType;
 
+    @NotNull
     @DateTimeFormat(pattern = "MM/dd/yyyy h:mm a")
     private LocalDateTime startDate;
 
+    @NotNull
     @DateTimeFormat(pattern = "MM/dd/yyyy h:mm a")
     private LocalDateTime endDate;
 

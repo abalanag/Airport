@@ -13,6 +13,7 @@ import ro.siit.airport.service.AirportService;
 import ro.siit.airport.service.FlightService;
 
 import javax.annotation.security.RolesAllowed;
+import javax.validation.Valid;
 
 @Controller
 public class DashboardController {
@@ -39,21 +40,20 @@ public class DashboardController {
         model.addAttribute("flightDto", new FlightDto());
         model.addAttribute("airportDto", airportService.findAll());
         model.addAttribute("airlineDto", airlineService.findAll());
-        return "addNewFlight";
+        return "add-new-flight";
     }
 
     @PostMapping("/new-flight")
     @RolesAllowed("ROLE_ADMIN")
-    public String postNewFlight(@Validated final FlightDto flightDto, final Model model, final BindingResult bindingResult) {
+    public String postNewFlight(@Valid @ModelAttribute("flightDto") FlightDto flightDto, final BindingResult bindingResult, final Model model) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("flightDto", new FlightDto());
+            model.addAttribute("flightDto", flightDto);
             model.addAttribute("airportDto", airportService.findAll());
             model.addAttribute("airlineDto", airlineService.findAll());
-            return "addNewFlight";
+            return "add-new-flight";
         } else {
             flightService.saveRecord(flightDto);
-            model.addAttribute("flightDto", flightService.findAllFlights());
-            return "dashboard";
+            return "redirect:/dashboard";
         }
     }
 
@@ -63,7 +63,7 @@ public class DashboardController {
         model.addAttribute("flight", flightService.findById(id));
         model.addAttribute("airportDto", airportService.findAll());
         model.addAttribute("airlineDto", airlineService.findAll());
-        return "editFlight";
+        return "edit-flight";
     }
 
     @PostMapping("/dashboard/edit/")

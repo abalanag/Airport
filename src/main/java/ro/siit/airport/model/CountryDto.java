@@ -6,6 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -13,6 +17,10 @@ import lombok.Setter;
 public class CountryDto {
 
     private Long id;
+
+    @NotBlank
     private String name;
+
+    @NotBlank
     private String countryCode;
 }

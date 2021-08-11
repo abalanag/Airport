@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Getter
@@ -14,9 +17,17 @@ import java.math.BigDecimal;
 public class AirportDto {
 
     private Long id;
+
+    @NotBlank
     private String name;
+
+    @NotBlank
     private String city;
+
+    @NotBlank
     private BigDecimal latitude;
+
+    @NotBlank
     private BigDecimal longitude;
     private Boolean active;
 }
